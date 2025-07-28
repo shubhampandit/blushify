@@ -1,0 +1,327 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.blogPost {
+  padding: 3rem 0;
+}
+
+.postHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.postHeader h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ff85a2;
+}
+
+.postMeta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.postFeaturedImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+.postContent {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.postContent h1,
+.postContent h2,
+.postContent h3,
+.postContent h4,
+.postContent h5,
+.postContent h6 {
+  font-family: 'Poppins', sans-serif;
+  color: #ff85a2;
+  margin: 2rem 0 1rem;
+}
+
+.postContent h2 {
+  font-size: 1.8rem;
+}
+
+.postContent h3 {
+  font-size: 1.5rem;
+}
+
+.postContent p {
+  margin-bottom: 1.5rem;
+}
+
+.postContent ul,
+.postContent ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.postContent li {
+  margin-bottom: 0.5rem;
+}
+
+.postContent img {
+  max-width: 100%;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.postContent a {
+  color: #ff85a2;
+  text-decoration: underline;
+}
+
+.postContent a:hover {
+  color: #ff6a8d;
+}
+
+.postContent blockquote {
+  border-left: 4px solid #ff85a2;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background-color: rgba(255, 133, 162, 0.1);
+  border-radius: 0 12px 12px 0;
+}
+
+.postContent code {
+  background-color: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.postContent pre {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.productBox {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: rgba(255, 133, 162, 0.1);
+  border-radius: 12px;
+  align-items: center;
+}
+
+.productBox img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.productInfo {
+  flex: 1;
+}
+
+.productInfo h3 {
+  color: #ff85a2;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.btnPrimary {
+  background-color: #ff85a2;
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background-color: #ff6a8d;
+  color: #fff;
+}
+
+.btnSmall {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.conclusion {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 3rem 0;
+}
+
+.postShare {
+  margin: 3rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.shareButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.relatedPosts {
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+}
+
+.relatedPosts .container {
+  max-width: 1200px;
+}
+
+.relatedPosts h2 {
+  text-align: center;
+  color: #ff85a2;
+  margin-bottom: 2rem;
+}
+
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.postCard {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.postCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.postCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.postCard .postContent {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.postCard h3 {
+  color: #ff85a2;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.postCard .postMeta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+}
+
+.postCard .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Kawaii elements styling */
+.sparkle,
+.flower,
+.heart,
+.sweat,
+.rainbow,
+.chick,
+.star,
+.heart2,
+.speech,
+.bookmark,
+.tag {
+  display: inline-block;
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Warning and note boxes */
+.warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  border-radius: 0 12px 12px 0;
+  margin: 1rem 0;
+}
+
+.note {
+  background-color: #d1ecf1;
+  border-left: 4px solid #0dcaf0;
+  padding: 1rem;
+  border-radius: 0 12px 12px 0;
+  margin: 1rem 0;
+}
+
+/* Horizontal rule styling */
+.postContent hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ff85a2, transparent);
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .productBox {
+    flex-direction: column;
+  }
+  
+  .postHeader h1 {
+    font-size: 2rem;
+  }
+  
+  .shareButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .postGrid {
+    grid-template-columns: 1fr;
+  }
+}

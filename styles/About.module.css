@@ -1,0 +1,150 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.aboutHero {
+  background-color: #ff85a2;
+  color: #fff;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.aboutHero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.aboutContent {
+  padding: 4rem 0;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.aboutText h2 {
+  color: #ff85a2;
+  font-family: 'Poppins', sans-serif;
+  margin: 2rem 0 1rem;
+}
+
+.aboutImage img {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: auto;
+}
+
+.teamSection {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.teamSection h2 {
+  color: #ff85a2;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 2rem;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.teamMember {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.teamMember img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.teamMember h3 {
+  color: #ff85a2;
+  font-family: 'Poppins', sans-serif;
+}
+
+.role {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.contactSection {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.contactSection h2 {
+  color: #ff85a2;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.contactMethods {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.contactMethod h3 {
+  color: #ff85a2;
+  margin-bottom: 0.5rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.socialLinks a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  transition: all 0.3s ease;
+}
+
+.socialLinks a:hover {
+  background-color: #ff85a2;
+}
+
+.icon {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+}
+
+@media (max-width: 768px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contactMethods {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
