@@ -1,0 +1,113 @@
+.header {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  padding: 0.5rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff85a2;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+}
+
+.navMenu {
+  display: flex;
+  list-style: none;
+}
+
+.navMenu li {
+  margin-left: 2rem;
+}
+
+.navLink {
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #333;
+}
+
+.navLink:hover {
+  color: #ff85a2;
+}
+
+.navToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.navToggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.navToggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navToggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navToggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .nav.active {
+    left: 0;
+  }
+
+  .navMenu {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  .navMenu li {
+    margin: 1rem 0;
+  }
+
+  .navToggle {
+    display: block;
+  }
+}
