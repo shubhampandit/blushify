@@ -124,17 +124,17 @@
 }
 
 .sidebarWidget {
-  background: linear-gradient(135deg, #fff 0%, #fef7f7 100%);
-  border-radius: 16px;
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
   padding: 1.5rem;
-  box-shadow: 0 8px 25px rgba(255, 133, 162, 0.1);
-  border: 1px solid rgba(255, 133, 162, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--gray-light);
+  transition: var(--transition);
 }
 
 .sidebarWidget:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(255, 133, 162, 0.15);
+  box-shadow: 0 8px 25px rgba(255, 133, 162, 0.15);
 }
 
 .widgetHeader {
@@ -143,16 +143,16 @@
   gap: 0.75rem;
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid rgba(255, 133, 162, 0.1);
+  border-bottom: 1px solid var(--gray-light);
 }
 
 .widgetIcon {
-  font-size: 1.5rem;
-  filter: drop-shadow(0 2px 4px rgba(255, 133, 162, 0.3));
+  font-size: 1.25rem;
+  color: var(--primary-color);
 }
 
 .widgetHeader h3 {
-  color: #ff85a2;
+  color: var(--primary-color);
   font-family: 'Poppins', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
@@ -168,34 +168,34 @@
 .searchInput {
   flex: 1;
   padding: 0.75rem 1rem;
-  border: 2px solid #f0f0f0;
-  border-radius: 25px;
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
   font-family: 'Quicksand', sans-serif;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .searchInput:focus {
   outline: none;
-  border-color: #ff85a2;
+  border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.1);
 }
 
 .searchBtn {
   padding: 0.75rem 1.25rem;
-  background: linear-gradient(135deg, #ff85a2, #ff6a8d);
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--light-color);
   border: none;
-  border-radius: 25px;
+  border-radius: var(--border-radius);
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .searchBtn:hover {
+  background-color: #ff6a8d;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 133, 162, 0.3);
 }
 
 /* Categories Widget */
@@ -209,42 +209,42 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
-  background: linear-gradient(135deg, #fff, #fef9f9);
-  border: 1px solid rgba(255, 133, 162, 0.15);
-  border-radius: 12px;
+  background-color: var(--gray-light);
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .categoryCard:hover {
-  background: linear-gradient(135deg, #ff85a2, #ff6a8d);
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--light-color);
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(255, 133, 162, 0.25);
+  box-shadow: var(--box-shadow);
 }
 
 .categoryName {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  color: #333;
+  color: var(--dark-color);
 }
 
 .categoryCard:hover .categoryName {
-  color: white;
+  color: var(--light-color);
 }
 
 .categoryCount {
-  background: rgba(255, 133, 162, 0.1);
-  color: #ff85a2;
+  background-color: rgba(255, 133, 162, 0.1);
+  color: var(--primary-color);
   padding: 0.25rem 0.5rem;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   font-size: 0.8rem;
   font-weight: 600;
 }
 
 .categoryCard:hover .categoryCount {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--light-color);
 }
 
 /* Popular Posts Widget */
@@ -259,14 +259,23 @@
   gap: 1rem;
   align-items: flex-start;
   position: relative;
+  padding: 0.75rem;
+  background-color: var(--gray-light);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.popularPost:hover {
+  background-color: #fef7f7;
+  transform: translateY(-2px);
 }
 
 .postRank {
   position: absolute;
   top: -8px;
   left: -8px;
-  background: linear-gradient(135deg, #ff85a2, #ff6a8d);
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--light-color);
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -276,7 +285,7 @@
   font-size: 0.7rem;
   font-weight: bold;
   z-index: 2;
-  box-shadow: 0 2px 8px rgba(255, 133, 162, 0.3);
+  box-shadow: var(--box-shadow);
 }
 
 .postImageLink {
@@ -288,13 +297,12 @@
   width: 80px;
   height: 60px;
   object-fit: cover;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
 }
 
 .postImageLink:hover .postImage {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .postInfo {
@@ -311,12 +319,12 @@
 
 .postTitle a {
   text-decoration: none;
-  color: #333;
-  transition: color 0.3s ease;
+  color: var(--dark-color);
+  transition: var(--transition);
 }
 
 .postTitle a:hover {
-  color: #ff85a2;
+  color: var(--primary-color);
 }
 
 .postMeta {
@@ -326,16 +334,20 @@
 
 /* Newsletter Widget */
 .newsletterWidget {
-  background: linear-gradient(135deg, #ff85a2 0%, #ff6a8d 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #ff6a8d 100%);
+  color: var(--light-color);
 }
 
 .newsletterWidget .widgetHeader h3 {
-  color: white;
+  color: var(--light-color);
 }
 
 .newsletterWidget .widgetHeader {
   border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.newsletterWidget .widgetIcon {
+  color: var(--light-color);
 }
 
 .newsletterDescription {
@@ -359,11 +371,10 @@
 .newsletterInput {
   padding: 0.875rem 1rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   background: rgba(255, 255, 255, 0.1);
-  color: white;
+  color: var(--light-color);
   font-family: 'Quicksand', sans-serif;
-  backdrop-filter: blur(10px);
 }
 
 .newsletterInput::placeholder {
@@ -372,25 +383,25 @@
 
 .newsletterInput:focus {
   outline: none;
-  border-color: white;
+  border-color: var(--light-color);
   background: rgba(255, 255, 255, 0.2);
 }
 
 .newsletterBtn {
   padding: 0.875rem 1.5rem;
-  background: white;
-  color: #ff85a2;
+  background-color: var(--light-color);
+  color: var(--primary-color);
   border: none;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .newsletterBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--box-shadow);
 }
 
 .newsletterNote {
@@ -412,22 +423,22 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem;
-  background: linear-gradient(135deg, #fff, #fef9f9);
-  border: 1px solid rgba(255, 133, 162, 0.15);
-  border-radius: 12px;
+  background-color: var(--gray-light);
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
   text-decoration: none;
-  color: #333;
+  color: var(--dark-color);
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .socialLink:hover {
-  background: linear-gradient(135deg, #ff85a2, #ff6a8d);
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 133, 162, 0.25);
+  box-shadow: var(--box-shadow);
 }
 
 .socialIcon {
@@ -444,15 +455,15 @@
 .statItem {
   text-align: center;
   padding: 1rem;
-  background: linear-gradient(135deg, #fff, #fef9f9);
-  border: 1px solid rgba(255, 133, 162, 0.15);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  background-color: var(--gray-light);
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
 }
 
 .statItem:hover {
-  background: linear-gradient(135deg, #ff85a2, #ff6a8d);
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--light-color);
   transform: translateY(-2px);
 }
 
@@ -460,13 +471,13 @@
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ff85a2;
+  color: var(--primary-color);
   font-family: 'Poppins', sans-serif;
   margin-bottom: 0.25rem;
 }
 
 .statItem:hover .statNumber {
-  color: white;
+  color: var(--light-color);
 }
 
 .statLabel {

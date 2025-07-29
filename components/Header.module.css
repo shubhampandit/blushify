@@ -1,22 +1,25 @@
 .header {
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--light-color) 0%, var(--cream-color) 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gray-light);
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 1rem 0;
-  transition: all 0.3s ease;
+  padding: var(--space-lg) 0;
+  transition: var(--transition);
 }
 
 .header.scrolled {
-  padding: 0.5rem 0;
+  padding: var(--space-md) 0;
+  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--space-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,10 +27,29 @@
 
 .logo {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  color: #ff85a2;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
+  position: relative;
+  transition: var(--transition);
+}
+
+.logo::after {
+  content: '✨';
+  position: absolute;
+  top: -8px;
+  right: -20px;
+  font-size: 1rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
 }
 
 .nav {
@@ -37,60 +59,99 @@
 .navMenu {
   display: flex;
   list-style: none;
-}
-
-.navMenu li {
-  margin-left: 2rem;
+  gap: var(--space-xl);
 }
 
 .navLink {
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--border-radius-xl);
+  transition: var(--transition);
   text-decoration: none;
-  color: #333;
+  color: var(--dark-color);
+  position: relative;
+  background: transparent;
+  border: 2px solid transparent;
 }
 
 .navLink:hover {
-  color: #ff85a2;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: var(--light-color);
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.navLink:active {
+  transform: translateY(0);
 }
 
 .navToggle {
   display: none;
-  background: none;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
   border: none;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  padding: 0.5rem;
+  padding: var(--space-sm);
+  width: 44px;
+  height: 44px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.navToggle:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow);
 }
 
 .navToggle span {
   display: block;
-  width: 25px;
+  width: 20px;
   height: 2px;
-  background-color: #333;
-  margin: 5px 0;
-  transition: all 0.3s ease;
+  background-color: var(--light-color);
+  margin: 4px auto;
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+.navToggle.active {
+  transform: rotate(90deg);
 }
 
 .navToggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(3px, 3px);
 }
 
 .navToggle.active span:nth-child(2) {
   opacity: 0;
+  transform: scale(0);
 }
 
 .navToggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(3px, -3px);
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
   .nav {
     position: fixed;
     top: 80px;
     left: -100%;
     width: 100%;
-    background-color: #fff;
-    transition: all 0.3s ease;
+    height: calc(100vh - 80px);
+    background: linear-gradient(135deg, var(--cream-color) 0%, var(--light-color) 100%);
+    backdrop-filter: blur(20px);
+    transition: var(--transition);
+    border-top: 1px solid var(--gray-light);
   }
 
   .nav.active {
@@ -100,14 +161,28 @@
   .navMenu {
     flex-direction: column;
     align-items: center;
-    padding: 2rem 0;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-2xl);
   }
 
-  .navMenu li {
-    margin: 1rem 0;
+  .navLink {
+    font-size: 1.25rem;
+    padding: var(--space-md) var(--space-xl);
   }
 
   .navToggle {
     display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .logo::after {
+    right: -15px;
+    font-size: 0.875rem;
   }
 }
