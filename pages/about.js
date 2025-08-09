@@ -58,25 +58,25 @@ export default function About() {
               <div className={styles.teamMember}>
                 <img 
                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" 
-                  alt="Emma" 
+                  alt="Aya" 
                   loading="lazy" 
                 />
-                <h3>Emma</h3>
+                <h3>Aya</h3>
                 <p className={styles.role}>Founder & Chief Kawaii Officer</p>
                 <p>
-                  Emma's passion for cute stationery and decor inspired the creation of Cute Finds.
+                  Aya's passion for cute stationery and decor inspired the creation of Cute Finds.
                 </p>
               </div>
               <div className={styles.teamMember}>
                 <img 
                   src="https://via.placeholder.com/200x200" 
-                  alt="Sophia" 
+                  alt="Omnia" 
                   loading="lazy" 
                 />
-                <h3>Sophia</h3>
+                <h3>Omnia</h3>
                 <p className={styles.role}>Co-Founder & Product Expert</p>
                 <p>
-                  Sophia has an eye for finding the most aesthetic tech gadgets and fashion accessories.
+                  Omnia has an eye for finding the most aesthetic tech gadgets and fashion accessories.
                 </p>
               </div>
             </div>
