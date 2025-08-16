@@ -97,7 +97,7 @@ function generateHTML(template, post) {
   // Replace title
   html = html.replace(
     /<title>.*?<\/title>/,
-    `<title>${post.t} | Cute Finds</title>`
+    `<title>${post.t} | blushify</title>`
   );
   
   // Replace meta description

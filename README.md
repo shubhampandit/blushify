@@ -1,4 +1,4 @@
-# Cute Finds Blog
+# blushify Blog
 
 A kawaii-themed blog built with Next.js, featuring cute product reviews and lifestyle content.
 

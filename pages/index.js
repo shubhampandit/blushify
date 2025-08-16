@@ -23,7 +23,7 @@ export default function Home({ latestPosts }) {
   return (
     <Layout>
       <Head>
-        <title>Cute Finds - Top Kawaii & Girly Products for 2025</title>
+        <title>blushify - Top Kawaii & Girly Products for 2025</title>
         <meta name="description" content="Discover the cutest kawaii accessories, pastel gifts, and girly tech gadgets. Your source for adorable decor ideas and aesthetic must-haves for 2025." />
         <meta name="keywords" content="cute products for girls, kawaii accessories, best pastel gifts, top girly tech gadgets, adorable decor ideas, aesthetic must-haves" />
       </Head>

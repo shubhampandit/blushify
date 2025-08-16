@@ -7,7 +7,7 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.footerGrid}>
           <div className={styles.footerCol}>
-            <h3>Cute Finds</h3>
+            <h3>blushify</h3>
             <p>Your ultimate destination for discovering the most adorable kawaii products and lifestyle inspiration. Join our community of cute enthusiasts!</p>
           </div>
           <div className={styles.footerCol}>
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles.copyright}>
-          <p>&copy; 2025 Cute Finds. Made with 💕 for kawaii lovers everywhere.</p>
+          <p>&copy; 2025 blushify. Made with 💕 for kawaii lovers everywhere.</p>
         </div>
       </div>
     </footer>

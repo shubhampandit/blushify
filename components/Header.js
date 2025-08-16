@@ -36,7 +36,7 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          Cute Finds
+          blushify
         </Link>
         
         <button 

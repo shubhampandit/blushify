@@ -8,7 +8,7 @@ export default function Blogs({ posts, totalPages, currentPage, popularPosts, ca
   return (
     <Layout>
       <Head>
-        <title>Blog - Cute Finds | Kawaii & Girly Product Reviews</title>
+        <title>Blog - blushify | Kawaii & Girly Product Reviews</title>
         <meta name="description" content="Read our latest blog posts featuring reviews of the cutest kawaii accessories, pastel gifts, and girly tech gadgets." />
         <meta name="keywords" content="kawaii blog, cute product reviews, girly accessories, pastel decor ideas" />
         <link rel="canonical" href="https://cutefindsblog.com/blogs" />
@@ -50,7 +50,7 @@ export default function Blogs({ posts, totalPages, currentPage, popularPosts, ca
                       </time>
                       {post.readTime && <> • {post.readTime}</>}
                     </p>
-                    <p>{post.content.substring(0, 150)}...</p>
+                    <p>{(post.description || post.content).substring(0, 150)}...</p>
                     <Link href={post.url} className={`${styles.btn} ${styles.btnSmall}`}>
                       Read More
                     </Link>
@@ -82,32 +82,14 @@ export default function Blogs({ posts, totalPages, currentPage, popularPosts, ca
             </div>
 
             <aside className={styles.blogSidebar}>
-              {/* Search Widget */}
-              <div className={styles.sidebarWidget}>
-                <div className={styles.widgetHeader}>
-                  <span className={styles.widgetIcon}>🔍</span>
-                  <h3>Search Posts</h3>
-                </div>
-                <form className={styles.searchForm}>
-                  <input
-                    type="search"
-                    placeholder="Search for cute finds..."
-                    className={styles.searchInput}
-                  />
-                  <button type="submit" className={styles.searchBtn}>
-                    Search
-                  </button>
-                </form>
-              </div>
-
-              {/* Categories Widget */}
+              {/* Categories Widget - Simplified to show only top 3 categories */}
               <div className={styles.sidebarWidget}>
                 <div className={styles.widgetHeader}>
                   <span className={styles.widgetIcon}>📂</span>
                   <h3>Categories</h3>
                 </div>
                 <div className={styles.categoryGrid}>
-                  {categories.map((category) => (
+                  {categories.slice(0, 3).map((category) => (
                     <Link
                       key={category.name}
                       href={`/category/${category.slug}`}
@@ -120,14 +102,14 @@ export default function Blogs({ posts, totalPages, currentPage, popularPosts, ca
                 </div>
               </div>
 
-              {/* Popular Posts Widget */}
+              {/* Popular Posts Widget - Only show top 2 posts */}
               <div className={styles.sidebarWidget}>
                 <div className={styles.widgetHeader}>
                   <span className={styles.widgetIcon}>⭐</span>
                   <h3>Trending Posts</h3>
                 </div>
                 <div className={styles.popularPostsList}>
-                  {popularPosts.map((post, index) => (
+                  {popularPosts.slice(0, 2).map((post, index) => (
                     <article key={post.id} className={styles.popularPost}>
                       <div className={styles.postRank}>#{index + 1}</div>
                       <Link href={post.url} className={styles.postImageLink}>
@@ -188,58 +170,6 @@ export default function Blogs({ posts, totalPages, currentPage, popularPosts, ca
                   </p>
                 </form>
               </div>
-
-              {/* Social Links Widget */}
-              <div className={styles.sidebarWidget}>
-                <div className={styles.widgetHeader}>
-                  <span className={styles.widgetIcon}>🌸</span>
-                  <h3>Follow Us</h3>
-                </div>
-                <div className={styles.socialLinks}>
-                  <a href="#" className={styles.socialLink} aria-label="Instagram">
-                    <span className={styles.socialIcon}>📷</span>
-                    <span>Instagram</span>
-                  </a>
-                  <a href="#" className={styles.socialLink} aria-label="Pinterest">
-                    <span className={styles.socialIcon}>📌</span>
-                    <span>Pinterest</span>
-                  </a>
-                  <a href="#" className={styles.socialLink} aria-label="TikTok">
-                    <span className={styles.socialIcon}>🎵</span>
-                    <span>TikTok</span>
-                  </a>
-                  <a href="#" className={styles.socialLink} aria-label="YouTube">
-                    <span className={styles.socialIcon}>📺</span>
-                    <span>YouTube</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Quick Stats Widget */}
-              <div className={styles.sidebarWidget}>
-                <div className={styles.widgetHeader}>
-                  <span className={styles.widgetIcon}>📊</span>
-                  <h3>Blog Stats</h3>
-                </div>
-                <div className={styles.statsGrid}>
-                  <div className={styles.statItem}>
-                    <span className={styles.statNumber}>{posts.length * 10}</span>
-                    <span className={styles.statLabel}>Total Posts</span>
-                  </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statNumber}>{categories.length}</span>
-                    <span className={styles.statLabel}>Categories</span>
-                  </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statNumber}>1.2K</span>
-                    <span className={styles.statLabel}>Happy Readers</span>
-                  </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statNumber}>500+</span>
-                    <span className={styles.statLabel}>Cute Finds</span>
-                  </div>
-                </div>
-              </div>
             </aside>
           </div>
         </div>
@@ -271,8 +201,7 @@ export async function getStaticProps() {
   });
   
   const categories = Array.from(categoryMap.values())
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 5); // Top 5 categories
+    .sort((a, b) => b.count - a.count);
   
   // Get popular posts (most recent 3 posts as a simple implementation)
   const popularPosts = allPosts

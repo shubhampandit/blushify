@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import Layout from '../../components/Layout';
 import { getBlogPostBySlug, getBlogPosts } from '../../lib/blogData';
+import Link from 'next/link';
 import styles from '../../styles/BlogPost.module.css';
 
-export default function BlogPost({ post }) {
+export default function BlogPost({ post, relatedPosts }) {
   if (!post) {
     return (
       <Layout>
@@ -18,7 +19,7 @@ export default function BlogPost({ post }) {
   return (
     <Layout>
       <Head>
-        <title>{post.title} | Cute Finds</title>
+        <title>{post.title} | blushify</title>
         <meta name="description" content={post.metaDescription || post.content.substring(0, 160)} />
         <meta name="keywords" content={post.keywords.join(', ')} />
         <meta property="og:title" content={post.title} />
@@ -37,7 +38,7 @@ export default function BlogPost({ post }) {
             "description": post.metaDescription || post.content.substring(0, 160),
             "author": {
               "@type": "Person",
-              "name": "Cute Finds Team"
+              "name": "blushify Team"
             },
             "datePublished": post.date,
             "image": post.image
@@ -91,34 +92,28 @@ export default function BlogPost({ post }) {
         <div className={styles.container}>
           <h2>You Might Also Like</h2>
           <div className={styles.postGrid}>
-            <article className={styles.postCard}>
-              <img 
-                src="https://via.placeholder.com/400x250" 
-                alt="Best Pink Tech Gadgets" 
-                loading="lazy" 
-              />
-              <div className={styles.postContent}>
-                <h3>Best Pink Tech Gadgets for Girls</h3>
-                <p className={styles.postMeta}>July 15, 2025</p>
-                <a href="/posts/best-pink-tech-gadgets-for-girls" className={`${styles.btn} ${styles.btnSmall}`}>
-                  Read More
-                </a>
-              </div>
-            </article>
-            <article className={styles.postCard}>
-              <img 
-                src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" 
-                alt="Aesthetic room decor" 
-                loading="lazy" 
-              />
-              <div className={styles.postContent}>
-                <h3>Aesthetic Room Decor Ideas</h3>
-                <p className={styles.postMeta}>July 10, 2025</p>
-                <a href="/posts/aesthetic-room-decor-ideas" className={`${styles.btn} ${styles.btnSmall}`}>
-                  Read More
-                </a>
-              </div>
-            </article>
+            {relatedPosts.map((relatedPost) => (
+              <article key={relatedPost.id} className={styles.postCard}>
+                <img 
+                  src={relatedPost.image} 
+                  alt={relatedPost.title} 
+                  loading="lazy" 
+                />
+                <div className={styles.postContent}>
+                  <h3>{relatedPost.title}</h3>
+                  <p className={styles.postMeta}>
+                    {new Date(relatedPost.date).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'short', 
+                      day: 'numeric' 
+                    })}
+                  </p>
+                  <Link href={relatedPost.url} className={`${styles.btn} ${styles.btnSmall}`}>
+                    Read More
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -147,9 +142,41 @@ export async function getStaticProps({ params }) {
     };
   }
 
+  // Get all posts and find related posts (same tags)
+  const allPosts = getBlogPosts();
+  
+  // Find posts with similar tags (at least one matching tag)
+  let relatedPosts = [];
+  if (post.tags && post.tags.length > 0) {
+    relatedPosts = allPosts.filter(otherPost => {
+      // Skip the current post
+      if (otherPost.id === post.id) return false;
+      
+      // Check if any tags match
+      if (otherPost.tags && otherPost.tags.length > 0) {
+        return post.tags.some(tag => otherPost.tags.includes(tag));
+      }
+      return false;
+    });
+  }
+
+  // If we don't have enough related posts, add some recent posts
+  if (relatedPosts.length < 2) {
+    const recentPosts = allPosts
+      .filter(p => p.id !== post.id) // Exclude current post
+      .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date
+      .slice(0, 2 - relatedPosts.length); // Get enough to fill up to 2
+    
+    relatedPosts = [...relatedPosts, ...recentPosts];
+  }
+
+  // Limit to 2 related posts
+  relatedPosts = relatedPosts.slice(0, 2);
+
   return {
     props: {
       post,
+      relatedPosts
     },
   };
 }

@@ -6,14 +6,14 @@ export default function About() {
   return (
     <Layout>
       <Head>
-        <title>About Us | Cute Finds - Your Guide to Kawaii & Girly Products</title>
-        <meta name="description" content="Learn about Cute Finds - your trusted source for discovering the most adorable kawaii accessories, pastel gifts, and girly tech gadgets." />
-        <meta name="keywords" content="about cute finds, kawaii blog, cute product reviews, girly accessories" />
+        <title>About Us | blushify - Your Guide to Kawaii & Girly Products</title>
+        <meta name="description" content="Learn about blushify - your trusted source for discovering the most adorable kawaii accessories, pastel gifts, and girly tech gadgets." />
+        <meta name="keywords" content="about blushify, kawaii blog, cute product reviews, girly accessories" />
       </Head>
 
       <section className={styles.aboutHero}>
         <div className={styles.container}>
-          <h1>About Cute Finds</h1>
+          <h1>About blushify</h1>
           <p>Your trusted source for discovering adorable products</p>
         </div>
       </section>
@@ -24,7 +24,7 @@ export default function About() {
             <div className={styles.aboutText}>
               <h2>Our Story</h2>
               <p>
-                Cute Finds was founded in 2025 by two best friends who shared a passion for all things 
+                blushify was founded in 2025 by two best friends who shared a passion for all things 
                 kawaii and aesthetic. What started as a hobby of sharing cute product discoveries with 
                 friends quickly grew into a full-fledged blog and community.
               </p>
@@ -46,7 +46,7 @@ export default function About() {
             <div className={styles.aboutImage}>
               <img 
                 src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" 
-                alt="Cute Finds team" 
+                alt="blushify team" 
                 loading="lazy" 
               />
             </div>
@@ -64,7 +64,7 @@ export default function About() {
                 <h3>Aya</h3>
                 <p className={styles.role}>Founder & Chief Kawaii Officer</p>
                 <p>
-                  Aya's passion for cute stationery and decor inspired the creation of Cute Finds.
+                  Aya's passion for cute stationery and decor inspired the creation of blushify.
                 </p>
               </div>
               <div className={styles.teamMember}>
